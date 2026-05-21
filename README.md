@@ -38,6 +38,7 @@ student-task-tracker/
 │   └── Delete_and_Complete.png
 │
 └── README.md
+```
 
 ## Git Workflow
 - Feature branches
