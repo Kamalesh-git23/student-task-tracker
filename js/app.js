@@ -31,8 +31,18 @@ function renderTasks(){
         const li = document.createElement("li");
         li.className = "tracker_item";
 
-        li.innerHTML = `<span>${task.text}</span>`;
+        li.innerHTML = `<span>${task.text}</span>
+                        <button onclick="deleteTask(${task.id})">
+                        Delete </button>`;
 
         taskList.appendChild(li);
     });
+}
+
+function deleteTask(id){
+    tasks=tasks.filter((task)=>{
+        return task.id !== id;
+    });
+
+    renderTasks();
 }

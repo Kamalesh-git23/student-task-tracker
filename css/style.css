@@ -62,10 +62,22 @@ body{
 }
 
 .tracker_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: #eee;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
+}
+
+.tracker_item button{
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 @media (max-width: 600px){
