@@ -80,6 +80,21 @@ body{
     cursor: pointer;
 }
 
+.tracker_item div {
+    display: flex;
+    gap: 10px;
+}
+
+.tracker_item button:first-child {
+    background: green;
+}
+
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
 @media (max-width: 600px){
     .tracker_top{
         flex-direction: column;
