@@ -1,6 +1,8 @@
 const taskInput = document.getElementById("taskInput");
 const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
+const searchInput = document.getElementById("searchInput");
+
 
 let tasks = [];
 
@@ -25,14 +27,26 @@ addBtn.addEventListener("click", ()=>{
     taskInput.value = "";
 });
 
-function renderTasks(){
-    taskList.innerHTML = "";
+searchInput.addEventListener("input", ()=>{
+    renderTasks(searchInput.value);
+});
 
-    tasks.forEach((task)=>{
+function renderTasks(searchText = ""){
+    taskList.innerHTML = "";
+    
+    const filteredTasks = tasks.filter((task)=>{
+        return task.text.toLowerCase().includes(searchText.toLowerCase());
+    });
+
+    filteredTasks.forEach((task)=>{
         const li = document.createElement("li");
         li.className = "tracker_item";
 
-        li.innerHTML = `<span class="${task.completed ? 'completed':''}">${task.text}</span>
+        if (task.completed){
+            li.classList.add("completed");
+        }
+
+        li.innerHTML = `<span>${task.text}</span>
 
                         <div>
 
