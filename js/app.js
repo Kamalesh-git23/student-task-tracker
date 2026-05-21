@@ -7,7 +7,7 @@ const searchInput = document.getElementById("searchInput");
 
 let tasks = getTasksFromStorage();
 
-renderTasks();
+renderTasks(tasks);
 
 addBtn.addEventListener("click", ()=>{
     const taskText = taskInput.value.trim();
@@ -26,44 +26,15 @@ addBtn.addEventListener("click", ()=>{
     tasks.push(task);
     saveTasksToStorage(tasks);
 
-    renderTasks();
+    renderTasks(tasks);
 
     taskInput.value = "";
 });
 
 searchInput.addEventListener("input", ()=>{
-    renderTasks(searchInput.value);
+    renderTasks(tasks,searchInput.value);
 });
 
-function renderTasks(searchText = ""){
-    taskList.innerHTML = "";
-    
-    const filteredTasks = tasks.filter((task)=>{
-        return task.text.toLowerCase().includes(searchText.toLowerCase());
-    });
-
-    filteredTasks.forEach((task)=>{
-        const li = document.createElement("li");
-        li.className = "tracker_item";
-
-        if (task.completed){
-            li.classList.add("completed");
-        }
-
-        li.innerHTML = `<span>${task.text}</span>
-
-                        <div>
-
-                            <button onclick="toggleTask(${task.id})">
-                            Complete </button>
-
-                            <button onclick="deleteTask(${task.id})">
-                            Delete </button>
-                        </div>`;
-
-        taskList.appendChild(li);
-    });
-}
 
 function deleteTask(id){
     tasks=tasks.filter((task)=>{
@@ -72,7 +43,7 @@ function deleteTask(id){
 
     saveTasksToStorage(tasks);
 
-    renderTasks();
+    renderTasks(tasks);
 }
 
 function toggleTask(id){
@@ -84,5 +55,5 @@ function toggleTask(id){
     });
 
     saveTasksToStorage(tasks);
-    renderTasks();
+    renderTasks(tasks);
 }
