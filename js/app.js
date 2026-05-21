@@ -4,7 +4,10 @@ const taskList = document.getElementById("taskList");
 const searchInput = document.getElementById("searchInput");
 
 
-let tasks = [];
+
+let tasks = getTasksFromStorage();
+
+renderTasks();
 
 addBtn.addEventListener("click", ()=>{
     const taskText = taskInput.value.trim();
@@ -21,6 +24,7 @@ addBtn.addEventListener("click", ()=>{
     };
 
     tasks.push(task);
+    saveTasksToStorage(tasks);
 
     renderTasks();
 
@@ -66,6 +70,8 @@ function deleteTask(id){
         return task.id !== id;
     });
 
+    saveTasksToStorage(tasks);
+
     renderTasks();
 }
 
@@ -77,5 +83,6 @@ function toggleTask(id){
         return task;
     });
 
+    saveTasksToStorage(tasks);
     renderTasks();
 }
