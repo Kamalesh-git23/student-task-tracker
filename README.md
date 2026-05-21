@@ -18,20 +18,26 @@ A responsive task management application for students built using HTML, CSS, and
 - Local Storage
 - Git & GitHub
 
-## Project Structure
+# Project Structure
+
+```text
 student-task-tracker/
-|
+│
 ├── index.html
-├── css/style.css
+├── css/
+│   └── style.css
+│
 ├── js/
-|   ├──app.js
-|   ├──storage.js
-|   ├──ui.js
-├──assets/
-|   ├──Home.png
-|   ├──Search.png
-|   ├──Delete_and_Complete.png
-└──README.md
+│   ├── app.js
+│   ├── storage.js
+│   └── ui.js
+│
+├── assets/
+│   ├── Home.png
+│   ├── Search.png
+│   └── Delete_and_Complete.png
+│
+└── README.md
 
 ## Git Workflow
 - Feature branches
