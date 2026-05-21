@@ -1,11 +1,11 @@
 const taskInput = document.getElementById("taskInput");
-const addbtn = document.getElementById("addbtn");
+const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
 let tasks = [];
 
-addbtn.addEventListener("click", ()=>{
-    const taskText = taskInput.ariaValueMax.trim();
+addBtn.addEventListener("click", ()=>{
+    const taskText = taskInput.value.trim();
 
     if(taskText === ""){
         alert("Please enter a task");
@@ -14,7 +14,7 @@ addbtn.addEventListener("click", ()=>{
 
     const task = {
         id:Date.now(),
-        text: taskTest
+        text: taskText
     };
 
     tasks.push(task);
@@ -25,13 +25,13 @@ addbtn.addEventListener("click", ()=>{
 });
 
 function renderTasks(){
-    taskList.innerHtml = "";
+    taskList.innerHTML = "";
 
     tasks.forEach((task)=>{
         const li = document.createElement("li");
         li.className = "tracker_item";
 
-        li.innerHTML = `<span>${task.text}</spam>`;
+        li.innerHTML = `<span>${task.text}</span>`;
 
         taskList.appendChild(li);
     });
