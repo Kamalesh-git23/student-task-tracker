@@ -14,7 +14,8 @@ addBtn.addEventListener("click", ()=>{
 
     const task = {
         id:Date.now(),
-        text: taskText
+        text: taskText,
+        completed: false
     };
 
     tasks.push(task);
@@ -31,9 +32,16 @@ function renderTasks(){
         const li = document.createElement("li");
         li.className = "tracker_item";
 
-        li.innerHTML = `<span>${task.text}</span>
-                        <button onclick="deleteTask(${task.id})">
-                        Delete </button>`;
+        li.innerHTML = `<span class="${task.completed ? 'completed':''}">${task.text}</span>
+
+                        <div>
+
+                            <button onclick="toggleTask(${task.id})">
+                            Complete </button>
+
+                            <button onclick="deleteTask(${task.id})">
+                            Delete </button>
+                        </div>`;
 
         taskList.appendChild(li);
     });
@@ -42,6 +50,17 @@ function renderTasks(){
 function deleteTask(id){
     tasks=tasks.filter((task)=>{
         return task.id !== id;
+    });
+
+    renderTasks();
+}
+
+function toggleTask(id){
+    tasks = tasks.map((task) =>{
+        if(task.id === id){
+            task.completed = !task.completed;
+        }
+        return task;
     });
 
     renderTasks();
