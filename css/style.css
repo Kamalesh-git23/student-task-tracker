@@ -6,55 +6,94 @@
 
 body{
     font-family: Arial, sans-serif;
-    background: #f5f5f5;
+    background: linear-gradient(135deg, #0f172a,#1e293b);
     display: flex;
     justify-content: center;
     align-items: center;
-
     min-height: 100vh;
     padding: 20px;
 }
 
 .tracker{
     width: 100%;
-    max-width: 500px;
-    
-    background: white;
+    max-width: 650px;
+    background: rgba(30,41,59,0.85);
+    backdrop-filter: blur(10px);
+    color: white;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .tracker_title{
     text-align: center;
     margin-bottom: 20px;
+    font-size: 32px;
+    color: #f8fafc;
 }
 
 .tracker_top{
     display: flex;
     gap: 10px;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .tracker_input,
-.tracker_search-input{
+.tracker_search-input,
+.tracker_select{
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    background: #334155;
+    color: white;
+    font-size: 15px;
+}
+
+.tracker_input::placeholder,
+.tracker_search-input::placeholder{
+    color: #cbd5e1;
 }
 
 .tracker_button{
-    padding: 10px 20px;
+    padding: 12px 20px;
     border: none;
-    background: black;
+    background: linear-gradient(135deg,#6366f1,#8b5cf6);
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.tracker_button:hover{
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
 .tracker_search{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #334155;
+    padding: 10px 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
+}
+
+.tracker_search i{
+    color: #cbd5e1;
+}
+
+.tracker_search-input{
+    background: transparent;
+    border: none;
 }
 
 .tracker_list{
@@ -65,42 +104,121 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #eee;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    transition: 0.3s;
 }
 
-.tracker_item button{
-    background: crimson;
+.tracker_item:hover{
+    transform: translateY(-3px);
+    background: rgba(255,255,255,0.12);
+}
+
+.tracker_content{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tracker_task-text{
+    font-size: 17px;
+    font-weight: 500;
+    color: #f8fafc;
+}
+
+
+.tracker_category{
+    display: inline-block;
+    width: fit-content;
+    padding: 6px 12px;
+    border-radius: 20px;
     color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
 }
 
-.tracker_item div {
+.tracker_actions{
     display: flex;
     gap: 10px;
 }
 
-.tracker_item button:first-child {
-    background: green;
+.tracker_actions button{
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
+.tracker_actions button:hover{
+    transform: scale(1.05);
+}
+
+.tracker_actions button:first-child{
+    background: #22c55e;
+}
+
+.tracker_actions button:last-child{
+    background: #ef4444;
+}
 
 .completed {
-    text-decoration: line-through;
     opacity: 0.6;
+    text-decoration: line-through;
 }
 
+.study {
+    background: #3b82f6;
+}
+
+.project {
+    background: #22c55e;
+}
+
+.exam {
+    background: #ef4444;
+}
+
+.personal {
+    background: #8b5cf6;
+}
+
+.fitness {
+    background: #f59e0b;
+}
+
+
+
 @media (max-width: 600px){
+
+    .tracker{
+        padding: 20px;
+    }
+
     .tracker_top{
         flex-direction: column;
     }
 
     .tracker_button{
         width: 100%;
+        justify-content: center;
+    }
+
+    .tracker_item{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .tracker_actions{
+        width: 100%;
+    }
+
+    .tracker_actions button{
+        flex: 1;
     }
 } 

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Task Tracker</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
@@ -15,16 +17,25 @@
         <div class="tracker_top">
             <input type="text" id="taskInput" class="tracker_input" placeholder="Enter task">
 
-            <button id="addBtn" class="tracker_button">Add Task</button>
+            <select id="categoryInput" class="tracker_select">
+                <option value="Study" selected>Study</option>
+                <option value="Project">Project</option>
+                <option value="Exam">Exam</option>
+                <option value="Personal">Personal</option>
+                <option value="Fitness">Fitness</option>
+            </select>
+
+
+            <button id="addBtn" class="tracker_button"><i class="fa-solid fa-plus"></i>Add Task</button>
         </div>
 
         <div class="tracker_search">
+            <i class="fa-solid fa-search"></i>
             <input type="text" id="searchInput" class="tracker_search-input" placeholder="search tasks">
 
         </div>
 
         <ul id="taskList" class="tracker_list">
-
         </ul>
 
     </div>
