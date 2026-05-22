@@ -6,6 +6,7 @@ function renderTasks(tasks, searchText = ""){
     });
 
     filteredTasks.forEach((task)=>{
+        
         const li = document.createElement("li");
         li.className = "tracker_item";
 
@@ -13,14 +14,17 @@ function renderTasks(tasks, searchText = ""){
             li.classList.add("completed");
         }
 
-        li.innerHTML = `<span>${task.text}</span>
+        li.innerHTML = `<div class="tracker_content">
+                            <span class="tracker_category ${task.category.toLowerCase()}">${task.category}</span>
+                    
+                            <span class="tracker_task-text">${task.text}</span>
+                        </div>
 
-                        <div>
-
-                            <button onclick="toggleTask(${task.id})">
+                        <div class="tracker_actions">
+                            <button onclick="toggleTask(${task.id})"><i class="fa-solid fa-check"></i>
                             Complete </button>
 
-                            <button onclick="deleteTask(${task.id})">
+                            <button onclick="deleteTask(${task.id})"><i class="fa-solid fa-trash"></i>
                             Delete </button>
                         </div>`;
 
