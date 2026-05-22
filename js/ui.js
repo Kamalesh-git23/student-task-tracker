@@ -1,8 +1,27 @@
-function renderTasks(tasks, searchText = ""){
+function renderTasks(tasks, searchText = "", filter ="all"){
     taskList.innerHTML = "";
     
-    const filteredTasks = tasks.filter((task)=>{
-        return task.text.toLowerCase().includes(searchText.toLowerCase());
+    const filteredTasks = tasks.filter((task) => {
+        const matchesSearch = task.text.toLowerCase().includes(searchText.toLowerCase());
+
+        let matchesFilter = true;
+
+        if (filter === "completed") {
+            matchesFilter = task.completed;
+        }
+        else if (filter === "pending") {
+            matchesFilter = !task.completed;
+        }
+        else if (filter === "high") {
+            matchesFilter = task.priority === "High";
+        }
+        else if (filter === "medium") {
+            matchesFilter = task.priority === "Medium";
+        }
+        else if (filter === "low") {
+            matchesFilter = task.priority === "Low";
+        }
+        return matchesSearch && matchesFilter;
     });
 
     const priorityOrder = { High: 1, Medium: 2, Low: 3 };
