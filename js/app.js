@@ -6,10 +6,11 @@ const addBtn = document.getElementById("addBtn");
 const taskList = document.getElementById("taskList");
 
 const searchInput = document.getElementById("searchInput");
+const filterInput = document.getElementById("filterInput");
 
 let tasks = getTasksFromStorage();
 
-renderTasks(tasks,searchInput.value);
+renderTasks(tasks, searchInput.value, filterInput.value);
 
 
 addBtn.addEventListener("click", ()=>{
@@ -31,16 +32,19 @@ addBtn.addEventListener("click", ()=>{
     tasks.push(task);
     saveTasksToStorage(tasks);
 
-    renderTasks(tasks,searchInput.value);
+    renderTasks(tasks, searchInput.value, filterInput.value);
 
     taskInput.value = "";
 });
 
 
 searchInput.addEventListener("input", ()=>{
-    renderTasks(tasks,searchInput.value);
+    renderTasks(tasks, searchInput.value, filterInput.value);
 });
 
+filterInput.addEventListener("change", () => {
+    renderTasks(tasks, searchInput.value, filterInput.value);
+});
 
 function deleteTask(id){
     tasks=tasks.filter((task)=>{
@@ -49,7 +53,7 @@ function deleteTask(id){
 
     saveTasksToStorage(tasks);
 
-    renderTasks(tasks,searchInput.value);
+    renderTasks(tasks, searchInput.value, filterInput.value);
 }
 
 
@@ -63,5 +67,5 @@ function toggleTask(id){
     });
 
     saveTasksToStorage(tasks);
-    renderTasks(tasks,searchInput.value);
+    renderTasks(tasks, searchInput.value, filterInput.value);
 }

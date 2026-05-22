@@ -194,6 +194,16 @@ body{
     background: #ef4444;
 }
 
+.tracker_filter {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tracker_filter select {
+    min-width: 180px;
+}
+
 .completed {
     opacity: 0.6;
     text-decoration: line-through;
