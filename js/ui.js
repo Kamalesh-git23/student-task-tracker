@@ -5,6 +5,12 @@ function renderTasks(tasks, searchText = ""){
         return task.text.toLowerCase().includes(searchText.toLowerCase());
     });
 
+    const priorityOrder = { High: 1, Medium: 2, Low: 3 };
+
+    filteredTasks.sort((a, b) => {
+        return priorityOrder[a.priority] - priorityOrder[b.priority];
+    });
+
     filteredTasks.forEach((task)=>{
         
         const li = document.createElement("li");
@@ -15,7 +21,15 @@ function renderTasks(tasks, searchText = ""){
         }
 
         li.innerHTML = `<div class="tracker_content">
-                            <span class="tracker_category ${task.category.toLowerCase()}">${task.category}</span>
+
+                            <div class="tracker_badges">
+                                <span class="tracker_category ${task.category.toLowerCase()}">${task.category}</span>
+                            
+                                <span class="tracker_priority ${task.priority.toLowerCase()}">
+                                    <i class="fa-solid fa-flag"></i>
+                                    ${task.priority}
+                                </span>
+                            </div>
                     
                             <span class="tracker_task-text">${task.text}</span>
                         </div>

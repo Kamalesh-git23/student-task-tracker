@@ -1,5 +1,6 @@
 const taskInput = document.getElementById("taskInput");
 const categoryInput = document.getElementById("categoryInput");
+const priorityInput = document.getElementById("priorityInput");
 const addBtn = document.getElementById("addBtn");
 
 const taskList = document.getElementById("taskList");
@@ -23,6 +24,7 @@ addBtn.addEventListener("click", ()=>{
         id:Date.now(),
         text: taskText,
         category: categoryInput.value,
+        priority: priorityInput.value,
         completed: false
     };
 
