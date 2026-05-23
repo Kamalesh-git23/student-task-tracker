@@ -42,12 +42,17 @@ function renderTasks(tasks, searchText = "", filter ="all"){
         li.innerHTML = `<div class="tracker_content">
 
                             <div class="tracker_badges">
-                                <span class="tracker_category ${task?.category?.toLowerCase()}">${task?.category}</span>
-                            
-                                <span class="tracker_priority ${task?.priority?.toLowerCase()}">
-                                    <i class="fa-solid fa-flag"></i>
-                                    ${task?.priority}
-                                </span>
+
+                                ${task?.category ? `
+                                <span class="tracker_category ${task.category.toLowerCase()}">
+                                ${task.category}</span>` : ""}
+
+
+                                ${task?.priority ? `
+                                <span class="tracker_priority ${task.priority.toLowerCase()}">
+                                <i class="fa-solid fa-flag"></i>
+                                ${task.priority}</span>` : ""}
+
                             </div>
                     
                             <span class="tracker_task-text">${task.text}</span>

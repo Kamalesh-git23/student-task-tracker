@@ -103,6 +103,9 @@ body{
 
 .tracker_list{
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 .tracker_item{
@@ -201,7 +204,7 @@ body{
 }
 
 .tracker_filter {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     display: flex;
     justify-content: flex-end;
 }
@@ -235,7 +238,37 @@ body{
     background: #f59e0b;
 }
 
+.tracker_section{
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 20px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+}
 
+.section_title{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f8fafc;
+}
+
+.tracker_input:focus,
+.tracker_search-input:focus,
+.tracker_select:focus{
+
+    outline: 2px solid #6366f1;
+}
+
+.tracker_section:hover{
+
+    border-color: rgba(99,102,241,0.5);
+
+    transition: 0.3s;
+}
 
 @media (max-width: 600px){
 
@@ -243,26 +276,68 @@ body{
         padding: 20px;
     }
 
+    .tracker_title{
+        font-size: 30px;
+    }
+
     .tracker_top{
         flex-direction: column;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .tracker_input,
+    .tracker_select,
+    .tracker_button{
+        width: 100%;
+        height: 52px;
+        font-size: 16px;
     }
 
     .tracker_button{
-        width: 100%;
         justify-content: center;
+    }
+
+    .tracker_search{
+        width: 100%;
+    }
+
+    .tracker_search-input{
+        width: 100%;
+    }
+
+    .tracker_filter{
+        justify-content: center;
+    }
+
+    .tracker_filter select{
+        width: 100%;
     }
 
     .tracker_item{
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
+        gap: 18px;
     }
 
     .tracker_actions{
         width: 100%;
+        display: flex;
+        gap: 10px;
     }
 
     .tracker_actions button{
         flex: 1;
+        justify-content: center;
+        padding: 12px;
     }
-} 
+
+    .tracker_badges{
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .section_title{
+        font-size: 18px;
+    }
+}
