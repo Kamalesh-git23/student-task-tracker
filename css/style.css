@@ -5,7 +5,7 @@
 }
 
 body{
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #0f172a,#1e293b);
     display: flex;
     justify-content: center;
@@ -29,7 +29,10 @@ body{
 .tracker_title{
     text-align: center;
     margin-bottom: 20px;
-    font-size: 32px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 1px;
     color: #f8fafc;
 }
 
@@ -59,6 +62,8 @@ body{
 }
 
 .tracker_button{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
     padding: 12px 20px;
     border: none;
     background: linear-gradient(135deg,#6366f1,#8b5cf6);
@@ -124,6 +129,7 @@ body{
 }
 
 .tracker_task-text{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 17px;
     font-weight: 500;
     color: #f8fafc;
